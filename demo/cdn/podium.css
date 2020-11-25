@@ -1,0 +1,17 @@
+.flag {
+    width: 45px;
+    height: 31px;
+    display: inline-block;
+}
+
+.flag--germany {
+    background: linear-gradient(-180deg, black 33.3%, #FF0000 33.3%, #FF0000 66.6%, #FFCC00 66.6%);
+}
+
+.flag--spain {
+    background: linear-gradient(#aa151b 25%, #f1bf00 25%, #f1bf00 75%, #aa151b 75%);
+}
+
+.flag--italy {
+    background: linear-gradient(90deg, #009246 33.3%, #f1f2f1 33.3%, #f1f2f1 66.6%, #ce2b37 66.6%)
+}

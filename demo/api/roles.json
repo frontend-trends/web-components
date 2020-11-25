@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Q1",
+        "group": [
+            {
+                "color": "#555594",
+                "amount": 10,
+                "name": "developers"
+            },
+            {
+                "color": "#28dcc5",
+                "amount": 5,
+                "name": "managers"
+            }
+        ]
+    },
+    {
+        "name": "Q2",
+        "group": [
+            {
+                "color": "#555594",
+                "amount": 12,
+                "name": "developers"
+            },
+            {
+                "color": "#28dcc5",
+                "amount": 6,
+                "name": "managers"
+            }
+        ]
+    },
+    {
+        "name": "Q3",
+        "group": [
+            {
+                "color": "#555594",
+                "amount": 14,
+                "name": "developers"
+            },
+            {
+                "color": "#28dcc5",
+                "amount": 6,
+                "name": "managers"
+            }
+        ]
+    },
+    {
+        "name": "Q4",
+        "group": [
+            {
+                "color": "#555594",
+                "amount": 14,
+                "name": "developers"
+            },
+            {
+                "color": "#28dcc5",
+                "amount": 6,
+                "name": "managers"
+            },
+            {
+                "color": "#a52a2a",
+                "amount": 1,
+                "name": "office it"
+            }
+        ]
+    }
+]

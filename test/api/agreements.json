@@ -1,0 +1,12 @@
+[
+    {
+        "color": "#555594",
+        "percent": 80,
+        "name": "Strongly agree"
+    },
+    {
+        "color": "#28dcc5",
+        "percent": 10,
+        "name": "Somewhat agree"
+    }
+]

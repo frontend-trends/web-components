@@ -1,0 +1,27 @@
+[
+    {
+        "color": "#555594",
+        "percent": 80,
+        "name": "Strongly agree"
+    },
+    {
+        "color": "#28dcc5",
+        "percent": 10,
+        "name": "Somewhat agree"
+    },
+    {
+        "color": "#b1196b",
+        "percent": 5,
+        "name": "Neither agree nor disagree"
+    },
+    {
+        "color": "#2079b1",
+        "percent": 3,
+        "name": "Somewhat disagree"
+    },
+    {
+        "color": "#bdbd2f",
+        "percent": 2,
+        "name": "Strongly disagree"
+    }
+]

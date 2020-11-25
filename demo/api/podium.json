@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Spain",
+        "place": 1,
+        "color": "#555594",
+        "subject": "184 k &#x33A2;<br/><div class='flag flag--spain'></div>"
+    },
+    {
+        "name": "Germany",
+        "place": 2,
+        "color": "#28dcc5",
+        "subject": "114 k &#x33A2;<br/><div class='flag flag--germany'></div>"
+    },
+    {
+        "name": "Italy",
+        "place": 3,
+        "color": "#a52a2a",
+        "subject": "107 k &#x33A2;<br/><div class='flag flag--italy'></div>"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "color": "green",
+        "percent": 50,
+        "name": "VW"
+    },
+    {
+        "color": "pink",
+        "percent": 20,
+        "name": "Opel"
+    },
+    {
+        "color": "brown",
+        "percent": 13,
+        "name": "Mercedes"
+    },
+    {
+        "color": "blue",
+        "percent": 1,
+        "name": "Audi"
+    }
+]

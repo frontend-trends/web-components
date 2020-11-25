@@ -1,0 +1,25 @@
+[{
+    "name": "",
+    "group": [
+        {
+            "color": "#555594",
+            "amount": 75,
+            "name": "Bicycle"
+        },
+        {
+            "color": "#28dcc5",
+            "amount": 60,
+            "name": "Car"
+        },
+        {
+            "color": "#b1196b",
+            "amount": 80,
+            "name": "Tram"
+        },
+        {
+            "color": "#2079b1",
+            "amount": 45,
+            "name": "Skateboard"
+        }
+    ]
+}]

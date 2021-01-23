@@ -1,114 +1,92 @@
-
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Begin Jekyll SEO tag v2.6.1 -->
-    <title>&lt;charts&gt; | charts</title>
-    <meta name="generator" content="Jekyll v3.9.0" />
-    <meta property="og:title" content="&lt;charts&gt;" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="description" content="A simple Chart Library with Web Components" />
-    <meta property="og:description" content="A simple Chart Library with Web Components" />
-    <link rel="canonical" href="https://frontend-trends.github.io/web-components/" />
-    <meta property="og:url" content="https://frontend-trends.github.io/web-components/" />
-    <meta property="og:site_name" content="charts" />
-    <link rel="stylesheet" href="https://frontend-trends.github.io/web-components/assets/css/style.css?v=07592bce1e0744ad9324c8b7c39f663803c81e39">
-    <script type="application/ld+json">
-        {"@type":"WebSite","headline":"&lt;charts&gt;","url":"https://frontend-trends.github.io/web-components/","description":"A simple Chart Library with Web Components","name":"charts","@context":"https://schema.org"}
-    </script>
-    <!-- End Jekyll SEO tag -->
-    <style type="text/css">
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 24px;
-            font-size: 15px;
-        }
-
-        article {
-            margin: 0 auto;
-            padding: 16px;
-            width: 100%;
-            box-shadow: -5px 0 5px -5px #868686, 5px 0 5px -5px #868686;
-            background: #ecececee;
-            border-right: 1px solid lightgrey;
-        }
-
-        table {
-            display: inline !important;
-        }
-
-        .definition-table {
-            overflow: auto;
-        }
-
-        .chart-example {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        @media screen and (min-width: 500px) {
+<html lang="de" dir="ltr" locale="ALL_de" user-region="europe">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./markdown.css">
+        <style type="text/css">
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 24px;
+                font-size: 15px;
+            }
+    
             article {
-                width: 80%;
-                max-width: 1000px;
-                padding: 40px;
+                margin: 0 auto;
+                padding: 16px;
+                width: 100%;
+                box-shadow: -5px 0 5px -5px #868686, 5px 0 5px -5px #868686;
+                background: #ecececee;
+                border-right: 1px solid lightgrey;
             }
-        }
-
-        @media screen and (min-width: 1000px) {
+    
+            table {
+                display: inline !important;
+            }
+    
+            .definition-table {
+                overflow: auto;
+            }
+    
             .chart-example {
-                justify-content: space-between
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-        }
-    </style>
-  </head>
-  <body>
-    <article>
-        <div class="markdown-body">
-        
-        <h1><a href="https://frontend-trends.github.io/web-components/">&lt;charts&gt;</a></h1>
-
-        <p>
-            A Chart Library with <a href="http://vanilla-js.com/">VanillaJS</a> Web Components that follow the <a href="https://github.com/open-wc/open-wc">open-wc</a> recommendation.
-            All charts are web components, which enables the isolation from other things on the same website and a comfortable 
-            rendering as with built-in web components (&lt;form \&gt; ...)
-
-            <br /><br />
-            <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" />
-            <img src="https://img.shields.io/badge/minified%20size-8%20kB-informational" alt="MIT License" />
-        </p>
-
-        <h2>At a Glance</h2>
-        <ul>
-            <li><a href="#installation">Installation</a></li>
-            <li><a href="#donut-chart">Donut Chart</a></li>
-            <li><a href="#bar-chart">Bar Chart</a></li>
-            <li><a href="#podium-chart">Podium Chart</a> (new)</li>
-            <li><a href="#line-chart">Line Chart</a></li>
-        </ul>
-
-        <h2 id="installation">Installation</h2>
-        <p>
-            <code>
-                $ npm i @frontend-trends/web-components --save
-            </code>
-            <p>
-                Not all browsers support the <a href="http://webcomponents.org/">Web Components specs</a>.
-                Therefore it is better to load the following polyfill on the page.
-                <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div></div>
-            </p>
+    
+            @media screen and (min-width: 500px) {
+                article {
+                    width: 80%;
+                    max-width: 1000px;
+                    padding: 40px;
+                }
+            }
+    
+            @media screen and (min-width: 1000px) {
+                .chart-example {
+                    justify-content: space-between
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <div class="markdown-body">
             
-        </p>
+            <div class="pageTitle">
+                <div style="text-align: center">
+                    <h1>Get Started</h1>
+                </div>
+            </div>
 
-        <h2 id="donut-chart">Donut Chart</h2>
-
-        <div class="language-html highlighter-rouge">
-            <div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+            <p class="h1-subtext">
+                This page is an overview of @frontend-trends/web-components.
+            </p>
+    
+            <p>
+                <strong>@frontend-trends/web-components</strong> is a open source chart library with <a href="http://vanilla-js.com/">VanillaJS</a> Web Components that follow the <a href="https://github.com/open-wc/open-wc">open-wc</a> recommendation.
+            </p>
+    
+            <h2 id="installation">Installation</h2>
+            <p>
+                <code>
+                    $ npm i @frontend-trends/web-components --save
+                </code>
+                <p>
+                    Not all browsers support the <a href="http://webcomponents.org/">Web Components specs</a>.
+                    Therefore it is better to load the following polyfill on the page.
+                    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div></div>
+                </p>
+                
+            </p>
+    
+            <div>
+            <h2 id="donut-chart">Donut Chart</h2>
+    
+            <div class="language-html highlighter-rouge">
+                <div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
     <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/donut-chart.js</span><span class="dl">'</span><span class="p">;</span>
 <span class="nt">&lt;/script&gt;</span>
 
@@ -119,65 +97,66 @@
     <span class="na">radius=</span><span class="s">"40"</span>
     <span class="na">stroke-width=</span><span class="s">"20"</span>
     <span class="na">legend=</span><span class="s">"right"</span>
-    <span class="na">source=</span><span class="s">"/web-components/dist/api/cars.json"</span>
+    <span class="na">source=</span><span class="s">"/demo/api/cars.json"</span>
 <span class="nt">&gt;&lt;/donut-chart&gt;</span>
-</code></pre></div></div>
-
-<div class="chart-example">
-    <div>
-        <h3>Cars of my friends</h3>
-        <donut-chart width="250" height="250" radius="40" stroke-width="20" legend="right" source="/demo/api/cars.json"></donut-chart>
-    </div>
-    <div class="definition-table">
-        <h3>Attributes</h3>
-        <table>
-            <tr>
-                <td><b>Attribute</b></td>
-                <td><b>Default</b></td>
-                <td><b>Description</b></td>
-            </tr>
-            <tr>
-                <td>width</td>
-                <td>250</td>
-                <td>chart width</td>
-            </tr>
-            <tr>
-                <td>height</td>
-                <td>250</td>
-                <td>chart height</td>
-            </tr>
-            <tr>
-                <td>legend</td>
-                <td>right</td>
-                <td>legend position</td>
-            </tr>
-            <tr>
-                <td>highlight</td>
-                <td>#a8d1ff</td>
-                <td>highlight color</td>
-            </tr>
-            <tr>
-                <td>radius</td>
-                <td>40</td>
-                <td>donut radius</td>
-            </tr>
-            <tr>
-                <td>stroke-width</td>
-                <td>30</td>
-                <td>donut stroke width</td>
-            </tr>
-            <tr>
-                <td>source</td>
-                <td>-</td>
-                <td>URL</td>
-            </tr>
-        </table>
+    </code></pre></div></div>
+    
+    <div class="chart-example">
+        <div>
+            <h3>Cars of my friends</h3>
+            <donut-chart width="250" height="250" radius="40" stroke-width="20" legend="right" source="/demo/api/cars.json"></donut-chart>
+        </div>
+        <div class="definition-table">
+            <h3>Attributes</h3>
+            <table class="zebra">
+                <tr>
+                    <td><b>Attribute</b></td>
+                    <td><b>Default</b></td>
+                    <td><b>Description</b></td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>250</td>
+                    <td>chart width</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>250</td>
+                    <td>chart height</td>
+                </tr>
+                <tr>
+                    <td>legend</td>
+                    <td>right</td>
+                    <td>legend position</td>
+                </tr>
+                <tr>
+                    <td>highlight</td>
+                    <td>#a8d1ff</td>
+                    <td>highlight color</td>
+                </tr>
+                <tr>
+                    <td>radius</td>
+                    <td>40</td>
+                    <td>donut radius</td>
+                </tr>
+                <tr>
+                    <td>stroke-width</td>
+                    <td>30</td>
+                    <td>donut stroke width</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>-</td>
+                    <td>URL</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
-
-        <h2 id="bar-chart">Bar Chart</h2>
-
-        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+    
+            <h2 id="bar-chart">Bar Chart</h2>
+    
+            <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
     <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/bar-chart.js</span><span class="dl">'</span><span class="p">;</span>
 <span class="nt">&lt;/script&gt;</span>
 
@@ -186,56 +165,56 @@
 <span class="nt">&lt;bar-chart</span>
     <span class="na">height=</span><span class="s">"300"</span>
     <span class="na">bar-width=</span><span class="s">"30"</span>
-    <span class="na">source=</span><span class="s">"/web-components/dist/api/roles.json"</span>
+    <span class="na">source=</span><span class="s">"/demo/api/roles.json"</span>
 <span class="nt">&gt;&lt;/bar-chart&gt;</span>
-</code></pre></div></div>
-
-    <div class="chart-example">
-        <div>
-            <h3>Company growth</h3>
-            <bar-chart width="300" height="250" bar-width="25" unit="%" source="/demo/api/roles.json"></bar-chart>
+    </code></pre></div></div>
+    
+        <div class="chart-example">
+            <div>
+                <h3>Company growth</h3>
+                <bar-chart width="300" height="250" bar-width="25" unit="%" source="/demo/api/roles.json"></bar-chart>
+            </div>
+        
+            <div class="definition-table">
+            <h3>Attributes</h3>
+            <table class="zebra">
+                <tr>
+                    <td><b>Attribute</b></td>
+                    <td><b>Default</b></td>
+                    <td><b>Description</b></td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>300</td>
+                    <td>chart width</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>300</td>
+                    <td>chart height</td>
+                </tr>
+                <tr>
+                    <td>bar-width</td>
+                    <td>30</td>
+                    <td>width of each bar</td>
+                </tr>
+                <tr>
+                    <td>unit</td>
+                    <td>-</td>
+                    <td>unit y-axis</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>-</td>
+                    <td>URL</td>
+                </tr>
+            </table>
+            </div>
         </div>
     
-        <div class="definition-table">
-        <h3>Attributes</h3>
-        <table>
-            <tr>
-                <td><b>Attribute</b></td>
-                <td><b>Default</b></td>
-                <td><b>Description</b></td>
-            </tr>
-            <tr>
-                <td>width</td>
-                <td>300</td>
-                <td>chart width</td>
-            </tr>
-            <tr>
-                <td>height</td>
-                <td>300</td>
-                <td>chart height</td>
-            </tr>
-            <tr>
-                <td>bar-width</td>
-                <td>30</td>
-                <td>width of each bar</td>
-            </tr>
-            <tr>
-                <td>unit</td>
-                <td>-</td>
-                <td>unit y-axis</td>
-            </tr>
-            <tr>
-                <td>source</td>
-                <td>-</td>
-                <td>URL</td>
-            </tr>
-        </table>
-        </div>
-    </div>
-
-    <h2 id="podium-chart">Podium Chart</h2>
-
-        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+        <h2 id="podium-chart">Podium Chart</h2>
+    
+            <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
         <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/podium-chart.js</span><span class="dl">'</span><span class="p">;</span>
 <span class="nt">&lt;/script&gt;</span>
 
@@ -244,63 +223,63 @@
 <span class="nt">&lt;podium-chart</span>
     <span class="na">width=</span><span class="s">"330"</span>
     <span class="na">height=</span><span class="s">"200"</span>
-    <span class="na">source=</span><span class="s">"/web-components/dist/api/podium.json"</span>
+    <span class="na">source=</span><span class="s">"/demo/api/podium.json"</span>
     <span class="na">stroke-color=</span><span class="s">"limegreen"</span>
     <span class="na">stylesheet=</span><span class="s">"/demo/cdn/podium.css"</span>
 <span class="nt">&gt;&lt;/podium-chart&gt;</span>
-</code></pre></div></div>
-
-    <div class="chart-example">
-        <div>
-            <h2>Countries by forest area</h2>
-            <podium-chart
-                width="330"
-                height="200"
-                source="/demo/api/podium.json"
-                stylesheet="/demo/cdn/podium.css"
-                stroke-color="limegreen"
-            ></podium-chart>
+    </code></pre></div></div>
+    
+        <div class="chart-example">
+            <div>
+                <h2>Countries by forest area</h2>
+                <podium-chart
+                    width="330"
+                    height="200"
+                    source="/demo/api/podium.json"
+                    stylesheet="/demo/cdn/podium.css"
+                    stroke-color="limegreen"
+                ></podium-chart>
+            </div>
+            <div class="definition-table">
+                <h3>Attributes</h3>
+                <table class="zebra">
+                    <tr>
+                        <td><b>Attribute</b></td>
+                        <td><b>Default</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>200</td>
+                        <td>chart width</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>200</td>
+                        <td>chart height</td>
+                    </tr>
+                    <tr>
+                        <td>stroke-color</td>
+                        <td>-</td>
+                        <td>color</td>
+                    </tr>
+                    <tr>
+                        <td>stylesheet</td>
+                        <td>-</td>
+                        <td>stylesheet URI for styling subjects</td>
+                    </tr>
+                    <tr>
+                        <td>source</td>
+                        <td>-</td>
+                        <td>URL</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="definition-table">
-            <h3>Attributes</h3>
-            <table>
-                <tr>
-                    <td><b>Attribute</b></td>
-                    <td><b>Default</b></td>
-                    <td><b>Description</b></td>
-                </tr>
-                <tr>
-                    <td>width</td>
-                    <td>200</td>
-                    <td>chart width</td>
-                </tr>
-                <tr>
-                    <td>height</td>
-                    <td>200</td>
-                    <td>chart height</td>
-                </tr>
-                <tr>
-                    <td>stroke-color</td>
-                    <td>-</td>
-                    <td>color</td>
-                </tr>
-                <tr>
-                    <td>stylesheet</td>
-                    <td>-</td>
-                    <td>stylesheet URI for styling subjects</td>
-                </tr>
-                <tr>
-                    <td>source</td>
-                    <td>-</td>
-                    <td>URL</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-        <h2 id="line-chart">Line Chart</h2>
-
-        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+    
+            <h2 id="line-chart">Line Chart</h2>
+    
+            <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
         <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/line-chart.js</span><span class="dl">'</span><span class="p">;</span>
 <span class="nt">&lt;/script&gt;</span>
 
@@ -309,69 +288,69 @@
 <span class="nt">&lt;line-chart</span>
     <span class="na">width=</span><span class="s">"400"</span>
     <span class="na">height=</span><span class="s">"160"</span>
-    <span class="na">source=</span><span class="s">"/web-components/dist/api/velocities.json"</span>
+    <span class="na">source=</span><span class="s">"/demo/api/velocities.json"</span>
     <span class="na">unit-x=</span><span class="s">"sec"</span>
     <span class="na">unit-y=</span><span class="s">"km/h"</span>
     <span class="na">scaling=</span><span class="s">"4"</span>
 <span class="nt">&gt;&lt;/line-chart&gt;</span>
-</code></pre></div></div>
-
-    <div class="chart-example">
-        <div>
-            <h2>Longboard velocity vs Bike</h2>
-            <line-chart width="330" height="160" source="/demo/api/velocities.json" unit-x="sec" unit-y="km/h" scaling="4"></line-chart>
+    </code></pre></div></div>
+    
+        <div class="chart-example">
+            <div>
+                <h2>Longboard velocity vs Bike</h2>
+                <line-chart width="400" height="250" source="/demo/api/velocities.json" unit-x="sec" unit-y="km/h" scaling="4"></line-chart>
+            </div>
+            <div class="definition-table">
+                <h3>Attributes</h3>
+                <table class="zebra">
+                    <tr>
+                        <td><b>Attribute</b></td>
+                        <td><b>Default</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>300</td>
+                        <td>chart width</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>300</td>
+                        <td>chart height</td>
+                    </tr>
+                    <tr>
+                        <td>unit-x</td>
+                        <td>-</td>
+                        <td>unit y-axis</td>
+                    </tr>
+                    <tr>
+                        <td>unit-y</td>
+                        <td>-</td>
+                        <td>unit y-axis</td>
+                    </tr>
+                    <tr>
+                        <td>scaling</td>
+                        <td>0</td>
+                        <td>scale factor</td>
+                    </tr>
+                    <tr>
+                        <td>source</td>
+                        <td>-</td>
+                        <td>URL</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="definition-table">
-            <h3>Attributes</h3>
-            <table>
-                <tr>
-                    <td><b>Attribute</b></td>
-                    <td><b>Default</b></td>
-                    <td><b>Description</b></td>
-                </tr>
-                <tr>
-                    <td>width</td>
-                    <td>300</td>
-                    <td>chart width</td>
-                </tr>
-                <tr>
-                    <td>height</td>
-                    <td>300</td>
-                    <td>chart height</td>
-                </tr>
-                <tr>
-                    <td>unit-x</td>
-                    <td>-</td>
-                    <td>unit y-axis</td>
-                </tr>
-                <tr>
-                    <td>unit-y</td>
-                    <td>-</td>
-                    <td>unit y-axis</td>
-                </tr>
-                <tr>
-                    <td>scaling</td>
-                    <td>0</td>
-                    <td>scale factor</td>
-                </tr>
-                <tr>
-                    <td>source</td>
-                    <td>-</td>
-                    <td>URL</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-        <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-            This site is open source. <a href="https://github.com/frontend-trends/web-components/edit/master/README.md">Improve this page</a>.
-        </div>
-        </div>
-    </article>
-    <script type="module">
-        import '../donut-chart.js';
-        import '../bar-chart.js';
-        import '../line-chart.js';
-        import '../podium-chart.js';
-    </script>
-  </body>
+            <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+                <br />
+                This is an open source project. <a href="https://github.com/frontend-trends/web-components">Improve this project</a>.
+            </div>
+        </article>
+        <script type="module">
+            import '../donut-chart.js';
+            import '../bar-chart.js';
+            import '../line-chart.js';
+            import '../podium-chart.js';
+        </script>
+    </body>
 </html>

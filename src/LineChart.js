@@ -9,11 +9,15 @@ export class LineChart extends HTMLElement {
 
       if (attributes.source) {
         fetch(attributes.source).then(response => response.json()).then(data => {
-            attributes.data = data;
-            this.createShadowDom(shadowRoot, attributes);
+          attributes.data = data;
+          this.withMaxPoints(attributes, this.getMaxPoints(data));
+          this.withScaling(attributes);
+          this.createShadowDom(shadowRoot, attributes);
         });
       } else {
-          this.createShadowDom(shadowRoot, attributes);
+        this.withMaxPoints(attributes, this.getMaxPoints(data));
+        this.withScaling(attributes);
+        this.createShadowDom(shadowRoot, attributes);
       }
   }
 
@@ -40,7 +44,7 @@ export class LineChart extends HTMLElement {
       .x-axis {
         width: calc(100% - 25px);
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         position: absolute;
         padding-left: 25px;
         bottom: -25px
@@ -50,13 +54,14 @@ export class LineChart extends HTMLElement {
         padding-left: 25px;
         width: calc(100% - 25px);
         height: 100%;
+        overflow: visible;
       }
       
       .line-chart polyline {
         stroke-width: 4;
         stroke-dasharray: ${attributes.width * 2}px;
         stroke-dashoffset: ${attributes.width * 2}px;
-        animation: animation 1s forwards;
+        animation: animation 2s forwards;
       }
       
       @keyframes animation {
@@ -102,46 +107,61 @@ export class LineChart extends HTMLElement {
       attributes.width = parseInt(element.getAttribute('width')) || 200;
       attributes.unitX = element.getAttribute('unit-x') || 'unit';
       attributes.unitY = element.getAttribute('unit-y') || 'unit';
-      attributes.scaling = parseInt(element.getAttribute('scaling')) || 1;
       return attributes;
+  }
+
+  withMaxPoints(attributes, maxPoints) {
+    attributes.maxYPoints = maxPoints.maxYPoints;
+    attributes.maxYPoint = Math.max(...maxPoints.maxYPoints);
+    attributes.maxXPoint = Math.max(...maxPoints.maxXPoints);
+    return attributes;
+  }
+
+  withScaling(attributes) {
+    attributes.scalingX = parseInt((attributes.width - 25) / attributes.maxXPoint) || 1;
+    attributes.scalingY = parseInt(attributes.height / attributes.maxYPoint) || 1;
+    return attributes;
+  }
+
+  getMaxPoints(data) {
+    let maxXPoints = [];
+    let maxYPoints = [];
+    data.map(a => a.graph).forEach(graph => {
+      let maxY = Math.max(...graph.map(a => a[1]))
+      let maxX = Math.max(...graph.map(a => a[0]))
+      maxYPoints.push(maxY);
+      maxXPoints.push(maxX);
+    });
+    return {
+      maxXPoints,
+      maxYPoints
+    }
   }
 
   getHtml(attributes) {
     let polylines = '';
     let nameItems = '';
-    let maxX = 0;
-    let maxValues = [];
     attributes.data.forEach((item, index) => {
-      let maxY = 0;
       nameItems += `<div class="name-item"><div class="square" style="background:${item.color}; border-color: ${item.color}"></div>${item.name}</div><br/>`;
       polylines += `<polyline fill="none" stroke="${item.color}"
         points="${item.graph.map(point => {
-          if (point[1] > maxY) {
-            maxY = point[1];
-          }
-          if (point[0] > maxX) {
-            maxX = point[0];
-          }
-          return `${point[0] * attributes.scaling},${attributes.height - (point[1] * attributes.scaling)} `
+          return `${point[0] * attributes.scalingX},${attributes.height - (point[1] * attributes.scalingY)} `
         }).join('')}" />`
-
-        maxValues.push(maxY);
     });
 
     return `
       <div class="line-chart">
         <div class="y-axis">
-          <div style="position:absolute; top: 0">${attributes.unitY}</div>
-          ${maxValues.map(maxValue => (
-            `<div style="position:absolute; bottom:${maxValue * attributes.scaling}px">${maxValue}</div>`
+          <div style="position: absolute; bottom: 0">0</div>
+          ${attributes.maxYPoints.map(yPoint => (
+            `<div style="position: absolute; bottom: ${yPoint * attributes.scalingY}px">${yPoint} ${yPoint === attributes.maxYPoint ? attributes.unitY : ''}</div>`
           )).join('')}
         </div>
         <svg>
           ${polylines}
         </svg>
         <div class="x-axis">
-          <div>0</div>
-          <div>${maxX} ${attributes.unitX}</div>
+          <div>${attributes.maxXPoint} ${attributes.unitX}</div>
         </div>
       </div>
       <div class="legend">${nameItems}</div>

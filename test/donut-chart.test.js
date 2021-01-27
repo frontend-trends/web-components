@@ -9,7 +9,10 @@ describe('<donut-chart>', () => {
             width: 200,
             height: 200,
             radius: 40,
+            'middle-color': 'yellow',
             'middle-text': 'Cars',
+            'middle-text-color': 'blue',
+            'middle-text-size': '15px',
             'stroke-width': 20,
             'legend': "right"
         });
@@ -50,6 +53,11 @@ describe('<donut-chart>', () => {
 
         const middleText = shadowRoot.querySelector('text');
         expect(middleText.innerHTML).toEqual('Cars');
+        expect(middleText.getAttribute('font-size')).toEqual('15px');
+        expect(middleText.getAttribute('fill')).toEqual('blue');
+
+        const radius = shadowRoot.getElementById('radius');
+        expect(radius.getAttribute('fill')).toEqual('yellow');
     });
 
     it('should sort and apply default atributes', async () => {
@@ -90,6 +98,8 @@ describe('<donut-chart>', () => {
         expect(legendItems[1].textContent).toEqual('Strongly agree  40 %');
 
         expect(shadowRoot.querySelectorAll('text').length).toEqual(0);
+        const radius = shadowRoot.getElementById('radius');
+        expect(radius.getAttribute('fill')).toEqual('#eee');
     });
 
     it('Should calculate the fill amount', () => {

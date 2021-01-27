@@ -134,6 +134,8 @@ export class DonutChart extends HTMLElement {
         attributes.highlightColor = element.getAttribute('highlight') || '#a8d1ff';
         attributes.middleColor = element.getAttribute('middle-color') || '#eee';
         attributes.middleText = element.getAttribute('middle-text');
+        attributes.middleTextColor = element.getAttribute('middle-text-color') || 'black';
+        attributes.middleTextSize = element.getAttribute('middle-text-size') || '12px';
         attributes.size = {
             width: parseInt(element.getAttribute('width')) || 250,
             height: parseInt(element.getAttribute('height')) || 250
@@ -181,7 +183,7 @@ export class DonutChart extends HTMLElement {
         <div id="donut-chart">
             <svg width="${attributes.size.width}" height="${attributes.size.height}" viewbox="0 0 100 100">
                 <circle cx="${center.x}" cy="${center.y}" r="${attributes.radius}" fill="${attributes.middleColor}" id="radius"/>
-                ${attributes.middleText ? `<text x="${center.x}" y="${center.y}" dominant-baseline="middle" text-anchor="middle" fill="red">${attributes.middleText}</text>` : ''}
+                ${attributes.middleText ? `<text x="${center.x}" y="${center.y}" dominant-baseline="middle" text-anchor="middle" fill="${attributes.middleTextColor}" font-size="${attributes.middleTextSize}">${attributes.middleText}</text>` : ''}
                 <circle cx="${center.x}" cy="${center.y}" r="${attributes.radius}" fill="transparent" stroke-width="${attributes.strokeWidth}" stroke="grey"/>
                 ${attributes.data.map((item) => {
                     nameItems += `<div class="name-item"><div class="square" style="background:${item.color}; border-color: ${item.color}"></div>${item.name}&nbsp;&nbsp;${item.originPercent} %</div><br/>`;

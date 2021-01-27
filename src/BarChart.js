@@ -79,7 +79,7 @@ export class BarChart extends HTMLElement {
         .bar {
             animation: animate-height;
             animation-timing-function: cubic-bezier(.35,.95,.67,.99);
-            animation-duration: .4s;
+            animation-duration: .8s;
             animation-fill-mode: forwards;
             height: 0;
             width: ${attributes.barWidth}px;

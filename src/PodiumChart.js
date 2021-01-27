@@ -91,7 +91,7 @@ export class PodiumChart extends HTMLElement {
             cy: 120;
             r: 6;
             animation: move .4s linear;
-            animation-delay: .7s;
+            animation-delay: .5s;
         }
 
         .svg-line {
@@ -104,17 +104,16 @@ export class PodiumChart extends HTMLElement {
             display: flex;
             align-items: flex-end;
             width: 100%;
+            font-size: 30px;
+            font-weight: bold;
+            color: #444141;
         }
 
         .place {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 33.3%;
-            color: #444141;
             background: #e5e5e5;
-            font-size: 25px;
-            font-weight: bold;
             width: 100%;
             animation: fadein 1s;
         }
@@ -145,7 +144,7 @@ export class PodiumChart extends HTMLElement {
         const placeWidth = Math.round(attributes.width / 3);
         const offsets = [attributes.height -  attributes.height * .4, attributes.height - attributes.height * .6, attributes.height - attributes.height * .3];
         attributes.offsets = offsets;
-        attributes.pointsArray = [[0,offsets[0]], [placeWidth - 5,offsets[0]], [placeWidth,offsets[1]], [placeWidth * 2 - 5,offsets[1]], [placeWidth * 2,offsets[2]], [placeWidth * 3,offsets[2]]];
+        attributes.pointsArray = [[0,offsets[0]], [placeWidth - 3,offsets[0]], [placeWidth,offsets[1]], [placeWidth * 2 - 3,offsets[1]], [placeWidth * 2,offsets[2]], [placeWidth * 3,offsets[2]]];
         return attributes;
     }
 

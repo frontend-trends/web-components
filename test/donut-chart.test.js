@@ -9,6 +9,7 @@ describe('<donut-chart>', () => {
             width: 200,
             height: 200,
             radius: 40,
+            'middle-text': 'Cars',
             'stroke-width': 20,
             'legend': "right"
         });
@@ -26,8 +27,8 @@ describe('<donut-chart>', () => {
         expect(circles[1].getAttribute('data-fill')).toEqual('10');
 
         await TestUtils.sleep(100);
-        expect(circles[0].getAttribute('style')).toEqual('stroke-dasharray: 251.2px; stroke-dashoffset: 25.12px;');
-        expect(circles[1].getAttribute('style')).toEqual('stroke-dasharray: 251.2px; stroke-dashoffset: 226.08px;');
+        expect(circles[0].getAttribute('style')).toEqual('stroke-dashoffset: 25.12px;');
+        expect(circles[1].getAttribute('style')).toEqual('stroke-dashoffset: 226.08px;');
 
         // legend start
         const legendItems = shadowRoot.querySelectorAll('.legend .name-item');
@@ -46,6 +47,9 @@ describe('<donut-chart>', () => {
         expect(legendItems[0].classList.contains('highlight')).toBeFalse;
         expect(legendItems[1].classList.contains('highlight')).toBeTrue;
         // legend end
+
+        const middleText = shadowRoot.querySelector('text');
+        expect(middleText.innerHTML).toEqual('Cars');
     });
 
     it('should sort and apply default atributes', async () => {
@@ -77,13 +81,15 @@ describe('<donut-chart>', () => {
         expect(circles[1].getAttribute('stroke')).toEqual('#555594');
 
         await TestUtils.sleep(100);
-        expect(circles[0].getAttribute('style')).toEqual('stroke-dasharray: 251.2px; stroke-dashoffset: 25.12px;');
-        expect(circles[1].getAttribute('style')).toEqual('stroke-dasharray: 251.2px; stroke-dashoffset: 150.72px;');
+        expect(circles[0].getAttribute('style')).toEqual('stroke-dashoffset: 25.12px;');
+        expect(circles[1].getAttribute('style')).toEqual('stroke-dashoffset: 150.72px;');
 
         const legendItems = shadowRoot.querySelectorAll('.legend .name-item');
         expect(legendItems.length).toEqual(2);
         expect(legendItems[0].textContent).toEqual('Somewhat agree  50 %');
         expect(legendItems[1].textContent).toEqual('Strongly agree  40 %');
+
+        expect(shadowRoot.querySelectorAll('text').length).toEqual(0);
     });
 
     it('Should calculate the fill amount', () => {

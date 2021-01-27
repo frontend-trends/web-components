@@ -15,7 +15,7 @@ describe('<podium-chart>', () => {
         expect(shadowRoot.querySelector("link[rel='stylesheet'][href='/demo/cdn/podium.css'") !== null).toBeTrue;
 
         expect(shadowRoot.querySelector('.moving-point') !== null).toBeTrue;
-        expect(shadowRoot.querySelector('polyline').getAttribute('points')).toEqual('0,120 138,120 143,80 281,80 286,140 429,140');
+        expect(shadowRoot.querySelector('polyline').getAttribute('points')).toEqual('0,120 140,120 143,80 283,80 286,140 429,140');
 
         const places = shadowRoot.querySelectorAll('.places .place');
         expect(places.length).toEqual(3);

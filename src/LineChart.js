@@ -61,7 +61,7 @@ export class LineChart extends HTMLElement {
         stroke-width: 4;
         stroke-dasharray: ${attributes.width * 2}px;
         stroke-dashoffset: ${attributes.width * 2}px;
-        animation: animation 2s forwards;
+        animation: animation 1s forwards;
       }
       
       @keyframes animation {
@@ -114,13 +114,11 @@ export class LineChart extends HTMLElement {
     attributes.maxYPoints = maxPoints.maxYPoints;
     attributes.maxYPoint = Math.max(...maxPoints.maxYPoints);
     attributes.maxXPoint = Math.max(...maxPoints.maxXPoints);
-    return attributes;
   }
 
   withScaling(attributes) {
     attributes.scalingX = parseInt((attributes.width - 25) / attributes.maxXPoint) || 1;
     attributes.scalingY = parseInt(attributes.height / attributes.maxYPoint) || 1;
-    return attributes;
   }
 
   getMaxPoints(data) {

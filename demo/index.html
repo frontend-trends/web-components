@@ -341,6 +341,50 @@
                 </table>
             </div>
         </div>
+
+
+        <h2 id="scale-chart">Scale Chart</h2>
+    
+            <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+        <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/scale-chart.js</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Longboard velocity vs Bike<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;scale-chart</span>
+    <span class="na">width=</span><span class="s">"400"</span>
+    <span class="na">height=</span><span class="s">"160"</span>
+<span class="nt">&gt;&lt;/scale-chart&gt;</span>
+    </code></pre></div></div>
+    
+        <div class="chart-example">
+            <div>
+                <h2>Longboard from Madrid</h2>
+                <scale-chart width="400" height="60" choose="5" square-style="color: white; background: black; border-radius: 10px" ></scale-chart>
+            </div>
+            <div class="definition-table">
+                <h3>Attributes</h3>
+                <table class="zebra">
+                    <tr>
+                        <td><b>Attribute</b></td>
+                        <td><b>Default</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>300</td>
+                        <td>chart width</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>300</td>
+                        <td>chart height</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
             <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
                 <br />
                 This is an open source project. <a href="https://github.com/frontend-trends/web-components">Improve this project</a>.
@@ -351,6 +395,7 @@
             import '../bar-chart.js';
             import '../line-chart.js';
             import '../podium-chart.js';
+            import '../scale-chart.js';
         </script>
     </body>
 </html>

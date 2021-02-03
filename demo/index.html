@@ -384,6 +384,104 @@
             </div>
         </div>
 
+        <h2 id="labeled-input">Labeled Input</h2>
+    
+            <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+        <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/scale-chart.js</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Longboard velocity vs Bike<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;labeled-input</span>
+    <span class="na">width=</span><span class="s">"400"</span>
+    <span class="na">height=</span><span class="s">"160"</span>
+<span class="nt">&gt;&lt;/labeled-input&gt;</span>
+    </code></pre></div></div>
+    
+        <div class="chart-example">
+            <div>
+                <h2>Longboard from Madrid</h2>
+                <form style="padding: 10px 9px; background: black;">
+                    <div style="display: flex; justify-content: space-between; margin-top: 22px;">
+                        <labeled-input
+                            width="145"
+                            height="40"
+                            placeholder="Name"
+                            placeholder-style="font-size:14px; color: #999"
+                            placeholder-up-style="color: white;"
+                            type="text"
+                            input-style="border: 1px solid grey"
+                        ></labeled-input>
+                        <labeled-input
+                            width="145"
+                            height="40"
+                            placeholder="Beruf"
+                            placeholder-style="font-size:14px; color: #999"
+                            placeholder-up-style="color: white;"
+                            type="text"
+                            input-style="border: 1px solid grey"
+                        ></labeled-input>
+                    </div>
+                    <div style="margin-top: 32px">
+                        <labeled-input
+                            width="310"
+                            height="40"
+                            placeholder="Anzahl Longboards"
+                            placeholder-style="font-size:14px; color: #999"
+                            placeholder-up-style="color: white;"
+                            type="number"
+                            input-style="border: 1px solid grey"
+                        ></labeled-input>
+                    </div>
+                </form>
+            </div>
+            <div class="definition-table">
+                <h3>Attributes</h3>
+                <table class="zebra">
+                    <tr>
+                        <td><b>Attribute</b></td>
+                        <td><b>Default</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>300</td>
+                        <td>chart width</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>300</td>
+                        <td>chart height</td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>-</td>
+                        <td>text, number, tel, password, month, search or url</td>
+                    </tr>
+                    <tr>
+                        <td>placeholder</td>
+                        <td>text</td>
+                        <td>placeholder</td>
+                    </tr>
+                    <tr>
+                        <td>placeholder-style</td>
+                        <td>-</td>
+                        <td>CSS style string</td>
+                    </tr>
+                    <tr>
+                        <td>placeholder-up-style</td>
+                        <td>-</td>
+                        <td>CSS style string</td>
+                    </tr>
+                    <tr>
+                        <td>input-style</td>
+                        <td>-</td>
+                        <td>CSS style string</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
 
             <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
                 <br />
@@ -396,6 +494,7 @@
             import '../line-chart.js';
             import '../podium-chart.js';
             import '../scale-chart.js';
+            import '../labeled-input.js';
         </script>
     </body>
 </html>

@@ -8,10 +8,6 @@ export class ScaleChart extends HTMLElement {
         const attributes = this.getAttributes(this);
         this.createShadowDom(shadowRoot, attributes);
     }
-
-    disconnectedCallback() {
-    
-    }
     
     createShadowDom(shadowRoot, attributes) {
         const squareWidth = attributes.width / 10;
@@ -39,9 +35,15 @@ export class ScaleChart extends HTMLElement {
         }
 
         @keyframes bounce {
-            20% {transform:translateY(-10px) rotate(0deg);}
-            50%{transform:translateY(0px) rotate(0deg);}
-            100%{transform:translateY(0px) rotate(0deg);}
+            20% {
+                transform:translateY(-10px)
+            }
+            50% {
+                transform:translateY(0px)
+            }
+            100% {
+                transform:translateY(0px)
+            }
         }
 
         @keyframes magnify {

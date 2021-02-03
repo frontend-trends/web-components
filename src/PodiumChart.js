@@ -91,7 +91,7 @@ export class PodiumChart extends HTMLElement {
             cy: 120;
             r: 6;
             animation: move .4s linear;
-            animation-delay: .5s;
+            animation-delay: .6s;
         }
 
         .svg-line {

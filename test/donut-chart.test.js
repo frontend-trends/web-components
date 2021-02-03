@@ -53,8 +53,6 @@ describe('<donut-chart>', () => {
 
         const middleText = shadowRoot.querySelector('text');
         expect(middleText.innerHTML).toEqual('Cars');
-        expect(middleText.getAttribute('font-size')).toEqual('15px');
-        expect(middleText.getAttribute('fill')).toEqual('blue');
 
         const radius = shadowRoot.getElementById('radius');
         expect(radius.getAttribute('fill')).toEqual('yellow');
@@ -103,13 +101,15 @@ describe('<donut-chart>', () => {
     });
 
     it('Should calculate the fill amount', () => {
-        expect(DonutChart.prototype.getFillAmount(100, 251.2)).toEqual('0.00');
-        expect(DonutChart.prototype.getFillAmount(90, 251.2)).toEqual('25.12');
-        expect(DonutChart.prototype.getFillAmount(50, 251.2)).toEqual('125.60');
-        expect(DonutChart.prototype.getFillAmount(0, 251.2)).toEqual('251.20');
+        const donutChart = new DonutChart();
+        expect(donutChart.getFillAmount(100, 251.2)).toEqual('0.00');
+        expect(donutChart.getFillAmount(90, 251.2)).toEqual('25.12');
+        expect(donutChart.getFillAmount(50, 251.2)).toEqual('125.60');
+        expect(donutChart.getFillAmount(0, 251.2)).toEqual('251.20');
     });
 
     it('Should process chart data', () => {
+        const donutChart = new DonutChart();
         let chartConfig = [
             {
                 "color": "#555594",
@@ -117,7 +117,7 @@ describe('<donut-chart>', () => {
                 "name": "Strongly agree"
             }
         ];
-        expect(DonutChart.prototype.processChartData(chartConfig)).toEqual([
+        expect(donutChart.processChartData(chartConfig)).toEqual([
             {
                 "color": "#555594",
                 "name": "Strongly agree",
@@ -138,7 +138,7 @@ describe('<donut-chart>', () => {
                 "name": "Somewhat agree"
             }
         ];
-        expect(DonutChart.prototype.processChartData(chartConfig)).toEqual([
+        expect(donutChart.processChartData(chartConfig)).toEqual([
             {
                 "color": "#555594",
                 "name": "Strongly agree",
@@ -165,7 +165,7 @@ describe('<donut-chart>', () => {
                 "name": "Somewhat agree"
             }
         ];
-        expect(DonutChart.prototype.processChartData(chartConfig)).toEqual([
+        expect(donutChart.processChartData(chartConfig)).toEqual([
             {
                 "color": "#555594",
                 "name": "Strongly agree",

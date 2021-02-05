@@ -52,8 +52,8 @@ export class ScaleChart extends HTMLElement {
                 height: ${squareWidth -6}px;
             }
             to {
-                width: ${squareWidth}px;
-                height: ${squareWidth}px;
+                width: ${squareWidth + 4}px;
+                height: ${squareWidth + 4}px;
                 font-size: 1.5em
             }
         }
@@ -66,13 +66,21 @@ export class ScaleChart extends HTMLElement {
           
         }).join('')}
 
-        .square:nth-child(${attributes.choose}) {
+        .square.magnify {
             animation: magnify .3s forwards;
             animation-delay: .3s;
         }
         </style>`;
 
         shadowRoot.innerHTML = styleNode + this.getHtml(attributes);
+
+        const middleSquares = shadowRoot.querySelectorAll(`.square:nth-child(${attributes.choose})`);
+
+        setTimeout(() => {
+            middleSquares.forEach((square) => {
+                square.classList.add('magnify');
+            });
+        }, 200)
 
         this.setAttribute('connected', true);
     }

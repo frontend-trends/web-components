@@ -35,7 +35,18 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-    
+
+            .animated-form {
+                width: 310px;
+                padding: 35px 12px 14px 10px;
+                background: #085311;
+            }
+
+            .flex-space-between {
+                display: flex;
+                justify-content: space-between;
+            }
+
             @media screen and (min-width: 500px) {
                 article {
                     width: 80%;
@@ -401,39 +412,45 @@
         <div class="chart-example">
             <div>
                 <h2>Longboard from Madrid</h2>
-                <form style="padding: 10px 9px; background: black;">
-                    <div style="display: flex; justify-content: space-between; margin-top: 22px;">
+                <form class="animated-form">
+                    <div class="flex-space-between">
                         <labeled-input
-                            width="145"
+                            width="140"
                             height="40"
                             placeholder="Name"
-                            placeholder-style="font-size:14px; color: #999"
+                            placeholder-style="font-size:14px;"
                             placeholder-up-style="color: white;"
-                            type="text"
-                            input-style="border: 1px solid grey"
+                            type="number"
+                            id="foo"
+                            style="border: 1px solid grey"
                         ></labeled-input>
                         <labeled-input
-                            width="145"
+                            width="140"
                             height="40"
-                            placeholder="Beruf"
-                            placeholder-style="font-size:14px; color: #999"
+                            placeholder="Longboards"
+                            placeholder-style="font-size:14px;"
                             placeholder-up-style="color: white;"
-                            type="text"
+                            type="tel"
+                            value="2"
                             input-style="border: 1px solid grey"
                         ></labeled-input>
                     </div>
-                    <div style="margin-top: 32px">
+                    <div style="margin-top: 45px;">
                         <labeled-input
                             width="310"
-                            height="40"
-                            placeholder="Anzahl Longboards"
-                            placeholder-style="font-size:14px; color: #999"
+                            height="50"
+                            placeholder="Profession"
+                            placeholder-style="font-size:22px;"
                             placeholder-up-style="color: white;"
-                            type="number"
-                            input-style="border: 1px solid grey"
+                            type="text"
+                            input-style="border: 1px solid grey; font-size: 22px;"
                         ></labeled-input>
                     </div>
                 </form>
+                <script>
+                    document.querySelector("#foo").addEventListener('labeled-input', e => console.log(e.detail));
+
+                </script>
             </div>
             <div class="definition-table">
                 <h3>Attributes</h3>

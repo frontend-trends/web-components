@@ -22,10 +22,23 @@ describe('<labeled-input>', () => {
         const inputs = shadowRoot.querySelectorAll('input');
         expect(inputs.length).toBe(1);
         expect(inputs[0].getAttribute('style')).toEqual('border: 1px solid black; padding: 10px');
-        expect(inputs[0].getAttribute('width')).toEqual('430');
-        expect(inputs[0].getAttribute('height')).toEqual('30');
         expect(inputs[0].getAttribute('type')).toEqual('number');
         expect(inputs[0].getAttribute('value')).toEqual('2');
-        expect(inputs[0].getAttribute('foo')).toEqual('bar');
+        expect(inputs[0].getAttribute('foo')).toBeNull;
+
+        // Events
+
+        let value = null;
+        let numEvents = 0;
+
+        document.addEventListener('labeled-input', (e) => {
+            value = e.detail;
+            ++numEvents;
+        });
+
+        inputs[0].focus();
+        
+        expect(value).toEqual({eventType: 'focus', value: '2'});
+        expect(numEvents).toEqual(1);
     });
 });

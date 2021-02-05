@@ -30,8 +30,6 @@ export class LabeledInput extends HTMLElement {
         }
 
         .labeled-input input {
-            position: absolute;
-            bottom: 0;
             border: 1px solid grey;
             padding: 7px 6px;
             background: white;
@@ -61,66 +59,75 @@ export class LabeledInput extends HTMLElement {
 
         shadowRoot.innerHTML = styleNode + this.getHtml(attributes);
 
-        shadowRoot.querySelectorAll('.placeholder').forEach((placeholder) => {
-            shadowRoot.querySelectorAll('input').forEach((input) => {
-                placeholder.addEventListener('click', () => {
-                    if (!placeholder.classList.contains('up')) {
-                        input.focus();
-                    }
-                });
-                input.addEventListener('focus', () => {
-                    if (!placeholder.classList.contains('quick-up')) {
-                        placeholder.classList.add('up');
-                    }
-                });
-                input.addEventListener('blur', () => {
-                    if (!input.value) {
-                        placeholder.classList.remove('up');
-                        placeholder.classList.remove('quick-up');
-                    }
-                });
-            })
-        })
+        this.getEvents(shadowRoot.querySelector('input'), shadowRoot.querySelector('.placeholder'));
 
         this.setAttribute('connected', true);
     }
 
     getAttributes(element) {
         const inputTypes = ['text', 'number', 'tel', 'password', 'month', 'search', 'url'];
-        const attributes = {};
-        attributes.height = parseInt(element.getAttribute('height')) || 40;
-        attributes.width = parseInt(element.getAttribute('width')) || 300;
-        attributes.placeholder = element.getAttribute('placeholder') || '';
-        attributes.placeholderStyle = element.getAttribute('placeholder-style') || '';
-        attributes.placeholderUpStyle = element.getAttribute('placeholder-up-style') || '';
-        attributes.inputStyle = element.getAttribute('input-style') || '';
-        attributes.nativeAttributes = this.getAllAttributes(element);
-        if (!attributes.nativeAttributes.type || !inputTypes.includes(attributes.nativeAttributes.type)) {
-            attributes.nativeAttributes.type = 'text';
+        const inputType = inputTypes.includes(this.getAttribute('type')) ? this.getAttribute('type') : 'text';
+        return {
+            height: parseInt(element.getAttribute('height')) || 40,
+            width: parseInt(element.getAttribute('width')) || 300,
+            placeholderStyle: element.getAttribute('placeholder-style'),
+            placeholderUpStyle: element.getAttribute('placeholder-up-style') || '',
+            placeholder: element.getAttribute('placeholder'),
+            inputAttributes: {
+                type: inputType,
+                pattern: element.getAttribute('pattern'),
+                maxlength: element.getAttribute('maxlength'),
+                min: element.getAttribute('min'),
+                max: element.getAttribute('max'),
+                autofocus: element.getAttribute('autofocus'),
+                value: element.getAttribute('value'),
+                style: element.getAttribute('input-style')
+            }
         }
-        delete attributes.nativeAttributes.placeholder;
-        delete attributes.nativeAttributes.style;
-        return attributes;
     }
 
-    getAllAttributes(el) {
-        return el.getAttributeNames().reduce((obj, name) => ({
-            ...obj,
-            [name]: el.getAttribute(name)
-        }), {});
-    }
+    getEvents(inputElement, placeholderElement) {
+        ['change', 'focus', 'blur'].forEach(eventType => {
+            inputElement.addEventListener(eventType, e => {
+                this.dispatchEvent(new CustomEvent('labeled-input', {
+                    bubbles: true,
+                    detail: {
+                        eventType,
+                        value: e.currentTarget.value
+                    }
+                }));
 
-    createAttributeString(attributes) {
-        return `${Object.keys(attributes).map((key) => {
-            return `${key}="${attributes[key]}" `;
-        }).join('')}`;
+                if (eventType === 'focus') {
+                    if (!placeholderElement.classList.contains('quick-up')) {
+                        placeholderElement.classList.add('up');
+                    }
+                }
+    
+                if (eventType === 'blur' && !inputElement.value) {
+                    placeholderElement.classList.remove('up');
+                    placeholderElement.classList.remove('quick-up');
+                }
+            });
+        });
+
+        placeholderElement.addEventListener('click', () => {
+            if (!placeholderElement.classList.contains('up')) {
+                inputElement.focus();
+            }
+        });
     }
 
     getHtml(attributes) {
         return `
         <div class="labeled-input">
-            <span class="placeholder ${attributes.nativeAttributes.value ? 'quick-up' : ''}" style="${attributes.placeholderStyle}">${attributes.placeholder}</span>
-            <input ${this.createAttributeString(attributes.nativeAttributes)} style="${attributes.inputStyle}"/>
+            <span class="placeholder ${attributes.inputAttributes.value ? 'quick-up' : ''}" ${attributes.placeholderStyle ? `style="${attributes.placeholderStyle}"` : ''}>
+                ${attributes.placeholder || ''}
+            </span>
+            <input ${Object.keys(attributes.inputAttributes).map((key) => {
+                if (attributes.inputAttributes[key]) {
+                    return `${key}="${attributes.inputAttributes[key]}" `;
+                }
+            }).join('')} />
         </div>
         `;
     }

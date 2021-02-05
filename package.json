@@ -1,6 +1,6 @@
 {
   "name": "@frontend-trends/web-components",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Web Component",
   "main": "index.js",
   "module": "index.js",

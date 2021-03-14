@@ -10,6 +10,16 @@ export class LabeledInput extends HTMLElement {
     }
 
     createShadowDom(shadowRoot, attributes) {
+        const downStyle = `
+            position: absolute;
+            left: 7px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            color: grey;
+            font-size: .9em;
+        `;
+
         const upStyle = `
             transform: translateY(-100%);
             left: 0;
@@ -39,20 +49,14 @@ export class LabeledInput extends HTMLElement {
         }
 
         .labeled-input .placeholder {
-            position: absolute;
-            left: 7px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-            color: grey;
-            font-size: .9em;
+            ${downStyle}
         }
 
         .labeled-input .placeholder.up {
             animation: move-up .3s forwards;
         }
 
-        .labeled-input .placeholder.quick-up {
+        .labeled-input .placeholder.instant-up {
             ${upStyle}
         }
         </style>`;
@@ -98,14 +102,14 @@ export class LabeledInput extends HTMLElement {
                 }));
 
                 if (eventType === 'focus') {
-                    if (!placeholderElement.classList.contains('quick-up')) {
+                    if (!placeholderElement.classList.contains('instant-up')) {
                         placeholderElement.classList.add('up');
                     }
                 }
     
                 if (eventType === 'blur' && !inputElement.value) {
                     placeholderElement.classList.remove('up');
-                    placeholderElement.classList.remove('quick-up');
+                    placeholderElement.classList.remove('instant-up');
                 }
             });
         });
@@ -120,7 +124,7 @@ export class LabeledInput extends HTMLElement {
     getHtml(attributes) {
         return `
         <div class="labeled-input">
-            <span class="placeholder ${attributes.inputAttributes.value ? 'quick-up' : ''}" ${attributes.placeholderStyle ? `style="${attributes.placeholderStyle}"` : ''}>
+            <span class="placeholder ${attributes.inputAttributes.value ? 'instant-up' : ''}" ${attributes.placeholderStyle ? `style="${attributes.placeholderStyle}"` : ''}>
                 ${attributes.placeholder || ''}
             </span>
             <input ${Object.keys(attributes.inputAttributes).map((key) => {

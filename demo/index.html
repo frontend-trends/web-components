@@ -47,6 +47,17 @@
                 justify-content: space-between;
             }
 
+            .scrollArea {
+                overflow: scroll;
+                height: 600px;
+                width: 500px;
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                padding: 10px;
+                border: 1px solid gray;
+            }
+
             @media screen and (min-width: 500px) {
                 article {
                     width: 80%;
@@ -500,6 +511,62 @@
         </div>
 
 
+        <h2 id="tilt-scroll">Tilt Scroll</h2>
+    
+            <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+        <span class="k">import</span> <span class="dl">'</span><span class="s1">./node_modules/@frontend-trends/web-components/tilt-scroll.js</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Longboard velocity vs Bike<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;tilt-scroll</span>
+    <span class="na">width=</span><span class="s">"400"</span>
+    <span class="na">height=</span><span class="s">"160"</span>
+<span class="nt">&gt;&lt;/tilt-scroll&gt;</span>
+    </code></pre></div></div>
+    
+        <div class="chart-example">
+            <div class="scrollArea">
+                <tilt-scroll scrollArea=".scrollArea" height="300" styleString="background:red"></tilt-scroll>
+                <tilt-scroll scrollArea=".scrollArea" height="300" styleString="background:blue; margin-top: 50px"></tilt-scroll>
+                <tilt-scroll scrollArea=".scrollArea" height="300" styleString="background:orange; margin-top: 50px"></tilt-scroll>
+                <tilt-scroll scrollArea=".scrollArea" height="300" styleString="background:green; margin-top: 50px"></tilt-scroll>
+                <tilt-scroll scrollArea=".scrollArea" height="300" styleString="background:yellow; margin-top: 50px"></tilt-scroll>
+            </div>
+
+            <div class="definition-table">
+                <h3>Attributes</h3>
+                <table class="zebra">
+                    <tr>
+                        <td><b>Attribute</b></td>
+                        <td><b>Default</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>300</td>
+                        <td>chart width</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>300</td>
+                        <td>chart height</td>
+                    </tr>
+                    <tr>
+                        <td>styleString</td>
+                        <td>-</td>
+                        <td>CSS styleString</td>
+                    </tr>
+                    <tr>
+                        <td>scrollArea</td>
+                        <td>-</td>
+                        <td>HTML Element</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
             <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
                 <br />
                 This is an open source project. <a href="https://github.com/frontend-trends/web-components">Improve this project</a>.
@@ -512,6 +579,7 @@
             import '../podium-chart.js';
             import '../scale-chart.js';
             import '../labeled-input.js';
+            import '../tilt-scroll.js';
         </script>
     </body>
 </html>

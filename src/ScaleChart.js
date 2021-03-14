@@ -80,7 +80,7 @@ export class ScaleChart extends HTMLElement {
             middleSquares.forEach((square) => {
                 square.classList.add('magnify');
             });
-        }, 200)
+        }, 301);
 
         this.setAttribute('connected', true);
     }

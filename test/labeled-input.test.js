@@ -17,7 +17,7 @@ describe('<labeled-input>', () => {
         const placeholders = shadowRoot.querySelectorAll('.placeholder');
         expect(placeholders.length).toBe(1);
         expect(placeholders[0].getAttribute('style')).toEqual('font-size: 10px; color: green');
-        expect(placeholders[0].classList.contains('quick-up')).toBeTrue;
+        expect(placeholders[0].classList.contains('instant-up')).toBeTrue;
 
         const inputs = shadowRoot.querySelectorAll('input');
         expect(inputs.length).toBe(1);
